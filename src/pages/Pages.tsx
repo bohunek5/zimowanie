@@ -64,7 +64,7 @@ function SeasonBand({ className = '' }: Readonly<SeasonBandProps>) {
     <section className={`season-band ${className}`}>
       <div className="container season-band__grid">
         <div><span className="overline"><Snowflake/> Sezon zimowy</span><h2>Od października<br/>do końca kwietnia.</h2><p>Jedna rezerwacja obejmuje pełny okres postoju na placu.</p></div>
-        <div className="season-dates"><div><CalendarDays/><small>Początek</small><strong>01.10</strong></div><span><Snowflake/></span><div><CalendarDays/><small>Koniec</small><strong>30.04</strong></div></div>
+        <div className="season-dates"><div><CalendarDays/><small>Początek sezonu</small><strong>01.10</strong></div><span aria-hidden="true"><Snowflake/></span><div><CalendarDays/><small>Koniec sezonu</small><strong>30.04</strong></div></div>
       </div>
     </section>
   );
