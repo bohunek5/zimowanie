@@ -41,7 +41,7 @@ export function PhotoGallery({ photos, compact = false }: Readonly<PhotoGalleryP
         {visiblePhotos.map((photo, index) => (
           <button className="photo-gallery__item" type="button" key={photo.src} onClick={() => setActiveIndex(index)} aria-label={`Powiększ zdjęcie: ${photo.title}`}>
             <img src={`${import.meta.env.BASE_URL}${photo.src.replace(/^\//, '')}`} alt={photo.alt} loading={index > 1 ? 'lazy' : 'eager'}/>
-            <span><small>{photo.category}</small><strong>{photo.title}</strong></span><Maximize2/>
+            <Maximize2/>
           </button>
         ))}
       </div>
@@ -50,7 +50,6 @@ export function PhotoGallery({ photos, compact = false }: Readonly<PhotoGalleryP
         <button className="lightbox__arrow lightbox__arrow--left" type="button" onClick={(event) => { event.stopPropagation(); move(-1); }} aria-label="Poprzednie zdjęcie"><ChevronLeft/></button>
         <figure onClick={(event) => event.stopPropagation()}>
           <img src={`${import.meta.env.BASE_URL}${visiblePhotos[activeIndex].src.replace(/^\//, '')}`} alt={visiblePhotos[activeIndex].alt}/>
-          <figcaption><span>{visiblePhotos[activeIndex].category}</span><strong>{visiblePhotos[activeIndex].title}</strong><small>{activeIndex + 1} / {visiblePhotos.length}</small></figcaption>
         </figure>
         <button className="lightbox__arrow lightbox__arrow--right" type="button" onClick={(event) => { event.stopPropagation(); move(1); }} aria-label="Następne zdjęcie"><ChevronRight/></button>
       </div>}

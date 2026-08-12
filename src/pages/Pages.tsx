@@ -101,7 +101,7 @@ export function HomePage(_props: Readonly<EmptyPageProps>) {
         <div className="container editorial-services">{editorialServices.map((item) => <article className="editorial-service" key={item.title}><div className="editorial-service__image"><img src={`${import.meta.env.BASE_URL}${item.image.replace(/^\//,'')}`} alt={item.imageAlt}/></div><div className="editorial-service__copy"><small>{item.label}</small><h3>{item.title}</h3><p>{item.text}</p><Link to="/oferta">Poznaj szczegóły <ArrowRight/></Link></div></article>)}</div>
       </section>
 
-      <section className="section real-gallery-preview"><div className="container section-intro"><div><span className="overline"><Images/> Prawdziwe realizacje</span><h2>Tak wygląda nasze zaplecze.</h2></div><div><p>Hala, plac, wózki i łodzie klientów — zdjęcia wykonane na miejscu.</p><Link to="/galeria">Zobacz całą galerię <ArrowRight/></Link></div></div><div className="container"><PhotoGallery photos={galleryPhotos} compact/></div></section>
+      <section className="section real-gallery-preview"><div className="container section-intro"><div><span className="overline"><Images/> Galeria</span><h2>Zobacz nasze zaplecze.</h2></div><div><p>Hala, plac, wózki oraz łodzie przechowywane w Giżycku.</p><Link to="/galeria">Zobacz całą galerię <ArrowRight/></Link></div></div><div className="container"><PhotoGallery photos={galleryPhotos} compact/></div></section>
 
       <SeasonBand/>
 
@@ -134,7 +134,7 @@ export function HallPage(_props: Readonly<EmptyPageProps>) {
 }
 
 export function GalleryPage(_props: Readonly<EmptyPageProps>) {
-  return <><section className="gallery-hero"><div className="container"><span className="overline"><Images/> Galeria</span><h1>Prawdziwe zdjęcia<br/>z naszego obiektu.</h1><p>Plac, ogrzewana hala, przygotowane wózki i obsługa dużych jednostek w Giżycku.</p></div></section><section className="section gallery-page"><div className="container gallery-page__head"><strong>{galleryPhotos.length} zdjęć</strong><span>Giżycko · ul. Sybiraków</span></div><div className="container"><PhotoGallery photos={galleryPhotos}/></div></section><PrimaryCta/></>;
+  return <><section className="gallery-hero"><div className="container"><span className="overline"><Images/> Galeria</span><h1>Galeria</h1><p>Plac, ogrzewana hala, przygotowane wózki i łodzie przechowywane w Giżycku.</p></div></section><section className="section gallery-page"><div className="container gallery-page__head"><strong>{galleryPhotos.length} zdjęć</strong><span>Giżycko · ul. Sybiraków</span></div><div className="container"><PhotoGallery photos={galleryPhotos}/></div></section><PrimaryCta/></>;
 }
 
 export function ContactPage(_props: Readonly<EmptyPageProps>) {
