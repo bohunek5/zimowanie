@@ -28,21 +28,18 @@ export const prices = [
 export const offers = [
   {
     icon: ShieldCheck,
-    number: '01',
     title: 'Monitorowany plac',
     text: '1800 m² utwardzonego terenu przeznaczonego do zimowania łodzi różnych długości.',
     points: ['Ogrodzony i oświetlony teren', 'Wygodny wjazd od ul. Sybiraków', 'Jedna opłata za cały sezon'],
   },
   {
     icon: Building2,
-    number: '02',
     title: 'Ogrzewana hala',
     text: 'Postój pod dachem dla jednostek wymagających osłoniętego miejsca na zimę.',
     points: ['Miejsce dopasowane do łodzi', 'Warunki ustalane przed przyjęciem', 'Cena ustalana indywidualnie'],
   },
   {
     icon: Wrench,
-    number: '03',
     title: 'Serwis zimowy',
     text: 'Przygotowanie jednostki do postoju możesz zlecić naszej firmie lub wykonać samodzielnie.',
     points: ['Zakres dopasowany do jednostki', 'Wycena przed rozpoczęciem prac', 'Możliwość własnego przygotowania'],
@@ -51,7 +48,6 @@ export const offers = [
 
 export const editorialServices = [
   {
-    number: '01',
     label: 'Postój pod dachem',
     title: 'Ogrzewana hala',
     text: 'Miejsce dobieramy do wymiarów jednostki. Dostępność oraz cenę potwierdzamy przed przyjęciem łodzi.',
@@ -59,7 +55,6 @@ export const editorialServices = [
     imageAlt: 'Łodzie przechowywane w jasnej ogrzewanej hali',
   },
   {
-    number: '02',
     label: 'Usługa dodatkowa',
     title: 'Serwis zimowy',
     text: 'Przygotowanie do postoju możesz zlecić naszej firmie albo wykonać we własnym zakresie.',
