@@ -108,6 +108,13 @@
 .season-dates>div{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.15)}
 .season-dates>div>svg{width:25px;color:var(--accent);margin-bottom:32px}
 .season-dates>span{background:var(--accent)}
+.season-band__grid{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(48px,6vw,90px)}
+.season-dates{position:relative;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,22px);width:100%}
+.season-dates>div{min-width:0;padding:clamp(22px,2vw,30px)}
+.season-dates small{white-space:nowrap}
+.season-dates strong{font-size:clamp(3rem,5vw,5rem);line-height:1;letter-spacing:-.075em;white-space:nowrap;font-variant-numeric:tabular-nums}
+.season-dates>span{position:absolute;z-index:2;left:50%;top:50%;width:48px;height:48px;transform:translate(-50%,-50%);border:6px solid var(--navy-2);pointer-events:none}
+.season-dates>span svg{width:20px}
 .pricing-section{background:linear-gradient(135deg,#edf3f2,#e6eff1)}
 :root[data-theme='night'] .pricing-section{background:linear-gradient(135deg,#0b2530,#102f3a)}
 .price{position:relative;overflow:hidden}
@@ -128,6 +135,11 @@
 .mobile-nav a.active{color:var(--accent);background:var(--accent-soft)}
 .mobile-nav a:last-child{background:var(--navy-2);color:#fff}
 
+@media(max-width:900px) and (min-width:681px){
+  .season-band__grid{grid-template-columns:1fr;gap:42px}
+  .season-dates{width:min(100%,680px)}
+}
+
 @media(max-width:680px){
   body{padding-top:72px}
   .site-header{position:fixed;background:color-mix(in srgb,var(--surface) 96%,transparent)}
@@ -141,6 +153,7 @@
   .home-hero{margin-top:-72px;padding-top:72px}
   .page-hero{padding-top:28px}
   .primary-cta{background:var(--navy-2)}
+  .season-band__grid{grid-template-columns:minmax(0,1fr);gap:36px}
   .storage-feature__metric>svg{margin-bottom:20px}
   .yard-number>svg{width:44px;height:44px;margin-bottom:32px}
   .season-dates{position:relative;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
