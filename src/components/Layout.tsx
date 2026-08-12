@@ -39,7 +39,7 @@ export function Layout({ theme, onToggleTheme }: Readonly<LayoutProps>) {
             <button className="theme-toggle" type="button" onClick={onToggleTheme} aria-label={theme === 'day' ? 'Włącz tryb nocny' : 'Włącz tryb dzienny'}>
               {theme === 'day' ? <Moon/> : <Sun/>}
             </button>
-            <a className="header__phone" href={phone.href}><Phone/><span>{phone.display}</span></a>
+            <a className="header__phone" href={phone.href} aria-label={`Zadzwoń: ${phone.display}`}><Phone/><span><small>Zadzwoń</small>{phone.display}</span></a>
           </div>
         </div>
       </header>

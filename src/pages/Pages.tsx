@@ -1,4 +1,4 @@
-import { ArrowRight, Building2, CalendarDays, Check, Clock3, Fence, Lamp, MapPin, Phone, Ruler, ShieldCheck, Snowflake, Warehouse, Wrench } from 'lucide-react';
+import { ArrowRight, Building2, CalendarDays, Check, Clock3, Fence, Lamp, MapPin, Phone, Ruler, Sailboat, ShieldCheck, Snowflake, Warehouse, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { address, editorialServices, offers, phone, prices, season } from '../data/mockData';
 
@@ -50,6 +50,7 @@ function PriceCards({ compact = false }: Readonly<PriceCardsProps>) {
     <div className={`prices ${compact ? 'prices--compact' : ''}`}>
       {prices.map((item) => <article className={`price ${item.featured ? 'price--featured' : ''}`} key={item.length}>
         <div className="price__top"><span><Ruler/>{item.length}</span>{item.featured && <small>Najczęściej wybierane</small>}</div>
+        <div className="price__visual" aria-hidden="true"><Sailboat/><i/></div>
         <strong>{item.price.replace(' zł','')}<sup>zł</sup></strong>
         <p>za sezon {season}</p>
         <a href={phone.href}>Rezerwuję <ArrowRight/></a>
@@ -63,7 +64,7 @@ function SeasonBand({ className = '' }: Readonly<SeasonBandProps>) {
     <section className={`season-band ${className}`}>
       <div className="container season-band__grid">
         <div><span className="overline"><Snowflake/> Sezon zimowy</span><h2>Od października<br/>do końca kwietnia.</h2><p>Jedna rezerwacja obejmuje pełny okres postoju na placu.</p></div>
-        <div className="season-dates"><div><small>Początek</small><strong>01.10</strong></div><span><Snowflake/></span><div><small>Koniec</small><strong>30.04</strong></div></div>
+        <div className="season-dates"><div><CalendarDays/><small>Początek</small><strong>01.10</strong></div><span><Snowflake/></span><div><CalendarDays/><small>Koniec</small><strong>30.04</strong></div></div>
       </div>
     </section>
   );
@@ -93,7 +94,7 @@ export function HomePage(_props: Readonly<EmptyPageProps>) {
 
       <section className="section offer-section">
         <div className="container section-intro"><div><span className="overline">Oferta</span><h2>Plac, hala i przygotowanie łodzi.</h2></div><p>Najpierw wybierasz miejsce. Jeśli chcesz, możemy również przygotować jednostkę do zimowego postoju.</p></div>
-        <div className="container storage-feature"><div><span className="storage-feature__number">1800<sup>m²</sup></span><small>utwardzonego placu</small></div><div><span className="overline">Najczęściej wybierane</span><h3>Monitorowany plac</h3><p>Ogrodzona i oświetlona przestrzeń dla jednostek różnych długości.</p><Link to="/cennik">Ceny od 1000 zł <ArrowRight/></Link></div><ul><li><Check/>Wjazd od ul. Sybiraków</li><li><Check/>Pełny sezon {season}</li><li><Check/>Możliwość własnego przygotowania łodzi</li></ul></div>
+        <div className="container storage-feature"><div className="storage-feature__metric"><Fence/><span className="storage-feature__number">1800<sup>m²</sup></span><small>utwardzonego placu</small></div><div><span className="overline">Najczęściej wybierane</span><h3>Monitorowany plac</h3><p>Ogrodzona i oświetlona przestrzeń dla jednostek różnych długości.</p><Link to="/cennik">Ceny od 1 000 zł <ArrowRight/></Link></div><ul><li><Check/>Wjazd od ul. Sybiraków</li><li><Check/>Pełny sezon {season}</li><li><Check/>Możliwość własnego przygotowania łodzi</li></ul></div>
         <div className="container editorial-services">{editorialServices.map((item) => <article className="editorial-service" key={item.title}><div className="editorial-service__image"><img src={`${import.meta.env.BASE_URL}${item.image.replace(/^\//,'')}`} alt={item.imageAlt}/><span>{item.number}</span></div><div className="editorial-service__copy"><small>{item.label}</small><h3>{item.title}</h3><p>{item.text}</p><Link to="/oferta">Poznaj szczegóły <ArrowRight/></Link></div></article>)}</div>
       </section>
 
@@ -101,7 +102,7 @@ export function HomePage(_props: Readonly<EmptyPageProps>) {
 
       <section className="section yard-section">
         <div className="container yard-section__head"><div><span className="overline">Nasz plac</span><h2>Warunki przygotowane na zimowy postój.</h2></div><div><p>Plac znajduje się przy ul. Sybiraków w Giżycku. Przed przyjazdem ustalamy wymiary łodzi, wybraną formę postoju i termin.</p><Link to="/plac">Szczegóły placu <ArrowRight/></Link></div></div>
-        <div className="container yard-facts-layout"><article className="yard-number"><span>Utwardzony plac</span><strong>1800<sup>m²</sup></strong><p>Miejsce dla łodzi o różnych długościach.</p></article><div className="yard-facts-grid"><article><ShieldCheck/><span><strong>Monitoring</strong><small>Nadzór nad terenem</small></span></article><article><Fence/><span><strong>Ogrodzenie</strong><small>Wydzielona przestrzeń</small></span></article><article><Lamp/><span><strong>Oświetlenie</strong><small>Plac widoczny po zmroku</small></span></article><article><Warehouse/><span><strong>Hala</strong><small>Opcja ogrzewanego postoju</small></span></article></div></div>
+        <div className="container yard-facts-layout"><article className="yard-number"><Ruler/><span>Utwardzony plac</span><strong>1800<sup>m²</sup></strong><p>Miejsce dla łodzi o różnych długościach.</p></article><div className="yard-facts-grid"><article><ShieldCheck/><span><strong>Monitoring</strong><small>Nadzór nad terenem</small></span></article><article><Fence/><span><strong>Ogrodzenie</strong><small>Wydzielona przestrzeń</small></span></article><article><Lamp/><span><strong>Oświetlenie</strong><small>Plac widoczny po zmroku</small></span></article><article><Warehouse/><span><strong>Hala</strong><small>Opcja ogrzewanego postoju</small></span></article></div></div>
       </section>
 
       <section className="section pricing-section"><div className="container section-intro"><div><span className="overline">Cennik placu</span><h2>Jedna opłata za cały sezon.</h2></div><p>Stawka zależy od długości łodzi. Sezon trwa od 1 października do 30 kwietnia.</p></div><div className="container"><PriceCards/><div className="hall-row"><Building2/><div><strong>Ogrzewana hala</strong><span>Miejsce oraz cena ustalane indywidualnie.</span></div><a href={phone.href}>Zapytaj o dostępność <ArrowRight/></a></div></div></section>
@@ -120,7 +121,7 @@ export function PricingPage(_props: Readonly<EmptyPageProps>) {
 }
 
 export function SitePage(_props: Readonly<EmptyPageProps>) {
-  return <><PageHero label="Plac" title="1800 m² dla małych i dużych jednostek." text="Plac jest ogrodzony, oświetlony i monitorowany. Wjazd znajduje się od ul. Sybiraków."/><section className="section site-page"><div className="container site-facts"><article className="site-facts__main"><span className="overline">Plac w Giżycku</span><strong>1800<sup>m²</sup></strong><p>Utwardzona przestrzeń przeznaczona do zimowania łodzi.</p></article><article><ShieldCheck/><h2>Monitorowany</h2><p>Nadzór nad terenem podczas sezonu zimowego.</p></article><article><Fence/><h2>Ogrodzony</h2><p>Wydzielony plac przy ul. Sybiraków.</p></article><article><Lamp/><h2>Oświetlony</h2><p>Czytelna przestrzeń również po zmroku.</p></article></div><div className="container arrival"><div><span className="overline">Przed przyjazdem</span><h2>Wystarczą trzy ustalenia.</h2></div><ol><li><span>01</span><strong>Podaj długość łodzi</strong></li><li><span>02</span><strong>Wybierz plac lub halę</strong></li><li><span>03</span><strong>Ustal termin przyjazdu</strong></li></ol></div></section><PrimaryCta/></>;
+  return <><PageHero label="Plac" title="1800 m² dla małych i dużych jednostek." text="Plac jest ogrodzony, oświetlony i monitorowany. Wjazd znajduje się od ul. Sybiraków."/><section className="section site-page"><div className="container site-facts"><article className="site-facts__main"><Ruler/><span className="overline">Plac w Giżycku</span><strong>1800<sup>m²</sup></strong><p>Utwardzona przestrzeń przeznaczona do zimowania łodzi.</p></article><article><ShieldCheck/><h2>Monitorowany</h2><p>Nadzór nad terenem podczas sezonu zimowego.</p></article><article><Fence/><h2>Ogrodzony</h2><p>Wydzielony plac przy ul. Sybiraków.</p></article><article><Lamp/><h2>Oświetlony</h2><p>Czytelna przestrzeń również po zmroku.</p></article></div><div className="container arrival"><div><span className="overline">Przed przyjazdem</span><h2>Wystarczą trzy ustalenia.</h2></div><ol><li><span>01</span><strong>Podaj długość łodzi</strong></li><li><span>02</span><strong>Wybierz plac lub halę</strong></li><li><span>03</span><strong>Ustal termin przyjazdu</strong></li></ol></div></section><PrimaryCta/></>;
 }
 
 export function ContactPage(_props: Readonly<EmptyPageProps>) {
