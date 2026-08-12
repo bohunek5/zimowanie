@@ -3,6 +3,18 @@ import { Building2, Fence, Lightbulb, ShieldCheck, Wrench } from 'lucide-react';
 export const phone = { display: '730 026 007', href: 'tel:+48730026007' };
 export const address = 'ul. Sybiraków, 11-500 Giżycko';
 export const season = '01.10–30.04';
+export const company = {
+  fullName: "Radosław Narwojsz „RAD'LIGHT”",
+  registeredAddress: 'ul. Myśliwska 3, 11-500 Giżycko',
+  nip: '8451647713',
+  regon: '519594153',
+} as const;
+
+export const legalItems = [
+  { label: 'Regulamin serwisu', to: '/regulamin' },
+  { label: 'Polityka prywatności', to: '/polityka-prywatnosci' },
+  { label: 'Cookies', to: '/cookies' },
+] as const;
 
 export const navItems = [
   { label: 'Start', to: '/' },

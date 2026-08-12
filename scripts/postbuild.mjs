@@ -1,7 +1,7 @@
 import { copyFile, mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
 
-const routes = ['oferta', 'cennik', 'plac', 'hala', 'galeria', 'kontakt'];
+const routes = ['oferta', 'cennik', 'plac', 'hala', 'galeria', 'kontakt', 'regulamin', 'polityka-prywatnosci', 'cookies'];
 const outputDirectory = new URL('../dist/', import.meta.url).pathname;
 const source = join(outputDirectory, 'index.html');
 
