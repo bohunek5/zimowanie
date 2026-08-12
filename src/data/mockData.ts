@@ -10,6 +10,7 @@ export const navItems = [
   { label: 'Cennik', to: '/cennik' },
   { label: 'Plac', to: '/plac' },
   { label: 'Hala', to: '/hala' },
+  { label: 'Galeria', to: '/galeria' },
   { label: 'Kontakt', to: '/kontakt' },
 ] as const;
 
@@ -52,14 +53,29 @@ export const editorialServices = [
     label: 'Postój pod dachem',
     title: 'Ogrzewana hala',
     text: 'Miejsce dobieramy do wymiarów jednostki. Dostępność oraz cenę potwierdzamy przed przyjęciem łodzi.',
-    image: '/assets/hala-ogrzewana-v1.jpg',
-    imageAlt: 'Łodzie przechowywane w jasnej ogrzewanej hali',
+    image: '/assets/gallery/lodz-w-hali.jpg',
+    imageAlt: 'Łódź przechowywana w ogrzewanej hali w Giżycku',
   },
   {
     label: 'Usługa dodatkowa',
     title: 'Serwis zimowy',
     text: 'Przygotowanie do postoju możesz zlecić naszej firmie albo wykonać we własnym zakresie.',
-    image: '/assets/serwis-zimowy-v1.jpg',
-    imageAlt: 'Łódź przygotowana do zimowego postoju na podporach',
+    image: '/assets/gallery/transport-do-hali.jpg',
+    imageAlt: 'Łódź przenoszona dźwigiem na przygotowany wózek',
   },
+] as const;
+
+export const galleryPhotos = [
+  { src: '/assets/gallery/hala-zewnatrz.jpg', alt: 'Ogrzewana hala i przygotowane wózki na placu', title: 'Hala i zaplecze', category: 'Obiekt', featured: true },
+  { src: '/assets/gallery/lodz-na-wozku.jpg', alt: 'Duża łódź motorowa ustawiona na stalowym wózku', title: 'Łódź na wózku', category: 'Plac', featured: true },
+  { src: '/assets/gallery/lodz-w-hali.jpg', alt: 'Łódź motorowa przechowywana wewnątrz hali', title: 'Postój w hali', category: 'Hala', featured: true },
+  { src: '/assets/gallery/wozek-pod-lodz.jpg', alt: 'Regulowany stalowy wózek przygotowany pod łódź', title: 'Wózek transportowy', category: 'Zaplecze', featured: false },
+  { src: '/assets/gallery/podpory-lodzi.jpg', alt: 'Regulowane podpory zabezpieczające kadłub łodzi', title: 'Regulowane podpory', category: 'Zaplecze', featured: false },
+  { src: '/assets/gallery/hala-wnetrze.jpg', alt: 'Przestronne wnętrze ogrzewanej hali', title: 'Wnętrze hali', category: 'Hala', featured: true },
+  { src: '/assets/gallery/wozek-plac.jpg', alt: 'Stalowy wózek ustawiony na utwardzonym placu', title: 'Przygotowanie miejsca', category: 'Plac', featured: false },
+  { src: '/assets/gallery/lodz-na-placu.jpg', alt: 'Łódź motorowa zabezpieczona na wózku na placu', title: 'Postój na placu', category: 'Plac', featured: true },
+  { src: '/assets/gallery/wodowanie-dzwigiem.jpg', alt: 'Łódź podnoszona pasami przy użyciu dźwigu', title: 'Bezpieczne podnoszenie', category: 'Transport', featured: true },
+  { src: '/assets/gallery/lodz-motorowa.jpg', alt: 'Łódź motorowa ustawiona na stalowym wózku', title: 'Jednostka motorowa', category: 'Plac', featured: false },
+  { src: '/assets/gallery/transport-do-hali.jpg', alt: 'Łódź przenoszona dźwigiem nad przygotowany wózek', title: 'Transport do hali', category: 'Transport', featured: true },
+  { src: '/assets/gallery/lodzie-zimowanie-hala.jpg', alt: 'Łodzie motorowe ustawione w ogrzewanej hali', title: 'Zimowanie pod dachem', category: 'Hala', featured: false },
 ] as const;

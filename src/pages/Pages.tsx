@@ -1,6 +1,7 @@
-import { ArrowRight, Building2, CalendarDays, Check, Clock3, Fence, Lamp, MapPin, Phone, Ruler, Sailboat, ShieldCheck, Snowflake, Warehouse, Wrench } from 'lucide-react';
+import { ArrowRight, Building2, CalendarDays, Check, Clock3, Fence, Images, Lamp, MapPin, Phone, Ruler, Sailboat, ShieldCheck, Snowflake, Warehouse, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { address, editorialServices, offers, phone, prices, season } from '../data/mockData';
+import { PhotoGallery } from '../components/PhotoGallery';
+import { address, editorialServices, galleryPhotos, offers, phone, prices, season } from '../data/mockData';
 
 interface PageHeroProps {
   readonly label: string;
@@ -27,7 +28,7 @@ interface SeasonBandProps {
 }
 
 function PhotoLayers() {
-  return <><div className="photo-layer photo-layer--day" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}assets/hero-yard-sun-v3.jpg')` }}/><div className="photo-layer photo-layer--night" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}assets/hero-yard-evening-v3.jpg')` }}/></>;
+  return <><div className="photo-layer photo-layer--day" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}assets/gallery/lodz-na-wozku.jpg')` }}/><div className="photo-layer photo-layer--night" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}assets/gallery/lodz-na-placu.jpg')` }}/></>;
 }
 
 function PageHero({ label, title, text, image, imageAlt = '' }: Readonly<PageHeroProps>) {
@@ -100,6 +101,8 @@ export function HomePage(_props: Readonly<EmptyPageProps>) {
         <div className="container editorial-services">{editorialServices.map((item) => <article className="editorial-service" key={item.title}><div className="editorial-service__image"><img src={`${import.meta.env.BASE_URL}${item.image.replace(/^\//,'')}`} alt={item.imageAlt}/></div><div className="editorial-service__copy"><small>{item.label}</small><h3>{item.title}</h3><p>{item.text}</p><Link to="/oferta">Poznaj szczegóły <ArrowRight/></Link></div></article>)}</div>
       </section>
 
+      <section className="section real-gallery-preview"><div className="container section-intro"><div><span className="overline"><Images/> Prawdziwe realizacje</span><h2>Tak wygląda nasze zaplecze.</h2></div><div><p>Hala, plac, wózki i łodzie klientów — zdjęcia wykonane na miejscu.</p><Link to="/galeria">Zobacz całą galerię <ArrowRight/></Link></div></div><div className="container"><PhotoGallery photos={galleryPhotos} compact/></div></section>
+
       <SeasonBand/>
 
       <section className="section yard-section">
@@ -119,15 +122,19 @@ export function OfferPage(_props: Readonly<EmptyPageProps>) {
 }
 
 export function PricingPage(_props: Readonly<EmptyPageProps>) {
-  return <><PageHero label="Cennik" title="Jasne stawki za pełny sezon."/><section className="section pricing-page"><div className="container pricing-groups"><article className="pricing-group pricing-group--yard"><header><span><ShieldCheck/>Monitorowany plac</span><h2>Postój na placu</h2><p>Opłata obejmuje pełny sezon od 1 października do 30 kwietnia.</p></header><PriceCards/></article><article className="pricing-group pricing-group--hall"><div className="pricing-group__photo"><img src={`${import.meta.env.BASE_URL}assets/hala-ogrzewana-v1.jpg`} alt="Łodzie przechowywane w ogrzewanej hali"/></div><div className="pricing-group__body"><span><Building2/>Ogrzewana hala</span><h2>Wycena indywidualna</h2><p>Podaj długość i szerokość łodzi. Sprawdzimy dostępność miejsca i ustalimy cenę.</p><a className="button button--primary" href={phone.href}><Phone/>Zadzwoń</a><div className="service-note"><Wrench/><p>Serwis zimowy wyceniamy oddzielnie po ustaleniu zakresu prac.</p></div></div></article></div></section><PrimaryCta/></>;
+  return <><PageHero label="Cennik" title="Jasne stawki za pełny sezon."/><section className="section pricing-page"><div className="container pricing-groups"><article className="pricing-group pricing-group--yard"><header><span><ShieldCheck/>Monitorowany plac</span><h2>Postój na placu</h2><p>Opłata obejmuje pełny sezon od 1 października do 30 kwietnia.</p></header><PriceCards/></article><article className="pricing-group pricing-group--hall"><div className="pricing-group__photo"><img src={`${import.meta.env.BASE_URL}assets/gallery/lodz-w-hali.jpg`} alt="Łódź przechowywana w ogrzewanej hali"/></div><div className="pricing-group__body"><span><Building2/>Ogrzewana hala</span><h2>Wycena indywidualna</h2><p>Podaj długość i szerokość łodzi. Sprawdzimy dostępność miejsca i ustalimy cenę.</p><a className="button button--primary" href={phone.href}><Phone/>Zadzwoń</a><div className="service-note"><Wrench/><p>Serwis zimowy wyceniamy oddzielnie po ustaleniu zakresu prac.</p></div></div></article></div></section><PrimaryCta/></>;
 }
 
 export function SitePage(_props: Readonly<EmptyPageProps>) {
-  return <><PageHero label="Plac" title="1800 m² dla małych i dużych jednostek." text="Plac jest ogrodzony, oświetlony i monitorowany. Wjazd znajduje się od ul. Sybiraków."/><section className="section site-page"><div className="container site-facts"><article className="site-facts__main"><Ruler/><span className="overline">Plac w Giżycku</span><strong>1800<sup>m²</sup></strong><p>Utwardzona przestrzeń przeznaczona do zimowania łodzi.</p></article><article><ShieldCheck/><h2>Monitorowany</h2><p>Nadzór nad terenem podczas sezonu zimowego.</p></article><article><Fence/><h2>Ogrodzony</h2><p>Wydzielony plac przy ul. Sybiraków.</p></article><article><Lamp/><h2>Oświetlony</h2><p>Czytelna przestrzeń również po zmroku.</p></article></div><div className="container arrival"><div><span className="overline">Przed przyjazdem</span><h2>Wystarczą trzy ustalenia.</h2></div><ol><li><Check/><strong>Podaj długość łodzi</strong></li><li><Check/><strong>Wybierz plac lub halę</strong></li><li><Check/><strong>Ustal termin przyjazdu</strong></li></ol></div></section><PrimaryCta/></>;
+  return <><PageHero label="Plac" title="1800 m² dla małych i dużych jednostek." text="Plac jest ogrodzony, oświetlony i monitorowany. Wjazd znajduje się od ul. Sybiraków." image="/assets/gallery/lodz-na-wozku.jpg" imageAlt="Łódź motorowa ustawiona na wózku na placu"/><section className="section site-page"><div className="container site-facts"><article className="site-facts__main"><Ruler/><span className="overline">Plac w Giżycku</span><strong>1800<sup>m²</sup></strong><p>Utwardzona przestrzeń przeznaczona do zimowania łodzi.</p></article><article><ShieldCheck/><h2>Monitorowany</h2><p>Nadzór nad terenem podczas sezonu zimowego.</p></article><article><Fence/><h2>Ogrodzony</h2><p>Wydzielony plac przy ul. Sybiraków.</p></article><article><Lamp/><h2>Oświetlony</h2><p>Czytelna przestrzeń również po zmroku.</p></article></div><div className="container arrival"><div><span className="overline">Przed przyjazdem</span><h2>Wystarczą trzy ustalenia.</h2></div><ol><li><Check/><strong>Podaj długość łodzi</strong></li><li><Check/><strong>Wybierz plac lub halę</strong></li><li><Check/><strong>Ustal termin przyjazdu</strong></li></ol></div></section><PrimaryCta/></>;
 }
 
 export function HallPage(_props: Readonly<EmptyPageProps>) {
-  return <><PageHero label="Ogrzewana hala" title="Postój pod dachem przez całą zimę." text="Miejsce dobieramy do wymiarów jednostki. Dostępność oraz cenę potwierdzamy przed przyjęciem łodzi." image="/assets/hala-ogrzewana-v1.jpg" imageAlt="Łodzie przechowywane w jasnej ogrzewanej hali"/><section className="section hall-page"><div className="container hall-benefits"><article><Warehouse/><h2>Ogrzewane wnętrze</h2><p>Osłonięte miejsce dla jednostek wymagających postoju pod dachem.</p></article><article><Ruler/><h2>Miejsce dopasowane do łodzi</h2><p>Przed rezerwacją ustalamy długość i szerokość jednostki.</p></article><article><Phone/><h2>Wycena indywidualna</h2><p>Zadzwoń — sprawdzimy dostępność i podamy cenę.</p></article></div></section><PrimaryCta title="Zapytaj o miejsce w ogrzewanej hali."/></>;
+  return <><PageHero label="Ogrzewana hala" title="Postój pod dachem przez całą zimę." text="Miejsce dobieramy do wymiarów jednostki. Dostępność oraz cenę potwierdzamy przed przyjęciem łodzi." image="/assets/gallery/lodz-w-hali.jpg" imageAlt="Łódź przechowywana w ogrzewanej hali"/><section className="section hall-page"><div className="container hall-benefits"><article><Warehouse/><h2>Ogrzewane wnętrze</h2><p>Osłonięte miejsce dla jednostek wymagających postoju pod dachem.</p></article><article><Ruler/><h2>Miejsce dopasowane do łodzi</h2><p>Przed rezerwacją ustalamy długość i szerokość jednostki.</p></article><article><Phone/><h2>Wycena indywidualna</h2><p>Zadzwoń — sprawdzimy dostępność i podamy cenę.</p></article></div><div className="container hall-photo-pair"><img src={`${import.meta.env.BASE_URL}assets/gallery/hala-wnetrze.jpg`} alt="Przestronne wnętrze ogrzewanej hali"/><img src={`${import.meta.env.BASE_URL}assets/gallery/lodzie-zimowanie-hala.jpg`} alt="Łodzie ustawione w ogrzewanej hali"/></div></section><PrimaryCta title="Zapytaj o miejsce w ogrzewanej hali."/></>;
+}
+
+export function GalleryPage(_props: Readonly<EmptyPageProps>) {
+  return <><section className="gallery-hero"><div className="container"><span className="overline"><Images/> Galeria</span><h1>Prawdziwe zdjęcia<br/>z naszego obiektu.</h1><p>Plac, ogrzewana hala, przygotowane wózki i obsługa dużych jednostek w Giżycku.</p></div></section><section className="section gallery-page"><div className="container gallery-page__head"><strong>{galleryPhotos.length} zdjęć</strong><span>Giżycko · ul. Sybiraków</span></div><div className="container"><PhotoGallery photos={galleryPhotos}/></div></section><PrimaryCta/></>;
 }
 
 export function ContactPage(_props: Readonly<EmptyPageProps>) {
