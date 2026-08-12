@@ -1,4 +1,4 @@
-import { BadgeDollarSign, House, Map, MapPin, Moon, PackageOpen, Phone, Sun } from 'lucide-react';
+import { BadgeDollarSign, House, Map, MapPin, Moon, PackageOpen, Phone, Sun, Warehouse } from 'lucide-react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { address, navItems, phone } from '../data/mockData';
 import type { Theme } from '../hooks/useTheme';
@@ -25,7 +25,7 @@ function Brand({ footer = false }: Readonly<BrandProps>) {
 
 export function Layout({ theme, onToggleTheme }: Readonly<LayoutProps>) {
   const location = useLocation();
-  const mobileIcons = [House, PackageOpen, BadgeDollarSign, Map, Phone];
+  const mobileIcons = [House, PackageOpen, BadgeDollarSign, Map, Warehouse, Phone];
 
   return (
     <div className="app-shell">

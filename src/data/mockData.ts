@@ -9,6 +9,7 @@ export const navItems = [
   { label: 'Oferta', to: '/oferta' },
   { label: 'Cennik', to: '/cennik' },
   { label: 'Plac', to: '/plac' },
+  { label: 'Hala', to: '/hala' },
   { label: 'Kontakt', to: '/kontakt' },
 ] as const;
 

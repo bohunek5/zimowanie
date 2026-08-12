@@ -6,6 +6,8 @@ interface PageHeroProps {
   readonly label: string;
   readonly title: string;
   readonly text?: string;
+  readonly image?: string;
+  readonly imageAlt?: string;
 }
 
 interface EmptyPageProps {
@@ -28,12 +30,12 @@ function PhotoLayers() {
   return <><div className="photo-layer photo-layer--day" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}assets/hero-yard-sun-v3.jpg')` }}/><div className="photo-layer photo-layer--night" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}assets/hero-yard-evening-v3.jpg')` }}/></>;
 }
 
-function PageHero({ label, title, text }: Readonly<PageHeroProps>) {
+function PageHero({ label, title, text, image, imageAlt = '' }: Readonly<PageHeroProps>) {
   return (
     <section className="page-hero">
       <div className="container page-hero__grid">
         <div className="page-hero__copy"><span className="overline">{label}</span><h1>{title}</h1>{text && <p>{text}</p>}</div>
-        <div className="page-hero__photo"><PhotoLayers/><span className="photo-caption"><MapPin/> Giżycko · ul. Sybiraków</span></div>
+        <div className="page-hero__photo">{image ? <img src={`${import.meta.env.BASE_URL}${image.replace(/^\//,'')}`} alt={imageAlt}/> : <PhotoLayers/>}<span className="photo-caption"><MapPin/> Giżycko · ul. Sybiraków</span></div>
       </div>
     </section>
   );
@@ -122,6 +124,10 @@ export function PricingPage(_props: Readonly<EmptyPageProps>) {
 
 export function SitePage(_props: Readonly<EmptyPageProps>) {
   return <><PageHero label="Plac" title="1800 m² dla małych i dużych jednostek." text="Plac jest ogrodzony, oświetlony i monitorowany. Wjazd znajduje się od ul. Sybiraków."/><section className="section site-page"><div className="container site-facts"><article className="site-facts__main"><Ruler/><span className="overline">Plac w Giżycku</span><strong>1800<sup>m²</sup></strong><p>Utwardzona przestrzeń przeznaczona do zimowania łodzi.</p></article><article><ShieldCheck/><h2>Monitorowany</h2><p>Nadzór nad terenem podczas sezonu zimowego.</p></article><article><Fence/><h2>Ogrodzony</h2><p>Wydzielony plac przy ul. Sybiraków.</p></article><article><Lamp/><h2>Oświetlony</h2><p>Czytelna przestrzeń również po zmroku.</p></article></div><div className="container arrival"><div><span className="overline">Przed przyjazdem</span><h2>Wystarczą trzy ustalenia.</h2></div><ol><li><Check/><strong>Podaj długość łodzi</strong></li><li><Check/><strong>Wybierz plac lub halę</strong></li><li><Check/><strong>Ustal termin przyjazdu</strong></li></ol></div></section><PrimaryCta/></>;
+}
+
+export function HallPage(_props: Readonly<EmptyPageProps>) {
+  return <><PageHero label="Ogrzewana hala" title="Postój pod dachem przez całą zimę." text="Miejsce dobieramy do wymiarów jednostki. Dostępność oraz cenę potwierdzamy przed przyjęciem łodzi." image="/assets/hala-ogrzewana-v1.jpg" imageAlt="Łodzie przechowywane w jasnej ogrzewanej hali"/><section className="section hall-page"><div className="container hall-benefits"><article><Warehouse/><h2>Ogrzewane wnętrze</h2><p>Osłonięte miejsce dla jednostek wymagających postoju pod dachem.</p></article><article><Ruler/><h2>Miejsce dopasowane do łodzi</h2><p>Przed rezerwacją ustalamy długość i szerokość jednostki.</p></article><article><Phone/><h2>Wycena indywidualna</h2><p>Zadzwoń — sprawdzimy dostępność i podamy cenę.</p></article></div></section><PrimaryCta title="Zapytaj o miejsce w ogrzewanej hali."/></>;
 }
 
 export function ContactPage(_props: Readonly<EmptyPageProps>) {

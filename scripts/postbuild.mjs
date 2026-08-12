@@ -1,7 +1,7 @@
 import { copyFile, mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
 
-const routes = ['oferta', 'cennik', 'plac', 'kontakt'];
+const routes = ['oferta', 'cennik', 'plac', 'hala', 'kontakt'];
 const outputDirectory = new URL('../dist/', import.meta.url).pathname;
 const source = join(outputDirectory, 'index.html');
 
@@ -12,4 +12,3 @@ await Promise.all(
     await copyFile(source, join(routeDirectory, 'index.html'));
   }),
 );
-
