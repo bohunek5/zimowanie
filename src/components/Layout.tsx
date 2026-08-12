@@ -1,7 +1,7 @@
 import { BadgeDollarSign, Compass, House, Images, Info, Map, MapPin, Moon, PackageOpen, Phone, Sun, Warehouse } from 'lucide-react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { BackToTop } from './BackToTop';
-import { address, company, legalItems, navItems, phone } from '../data/mockData';
+import { address, legalItems, navItems, phone } from '../data/mockData';
 import { useScrollToTop } from '../hooks/useScrollToTop';
 import type { Theme } from '../hooks/useTheme';
 
@@ -56,8 +56,7 @@ export function Layout({ theme, onToggleTheme }: Readonly<LayoutProps>) {
           <nav className="footer__nav" aria-label="Nawigacja w stopce"><small><Compass/>Strona</small>{navItems.slice(1).map((item) => <NavLink key={item.to} to={item.to}>{item.label}</NavLink>)}</nav>
           <nav className="footer__nav footer__legal" aria-label="Informacje prawne"><small><Info/>Informacje</small>{legalItems.map((item) => <NavLink key={item.to} to={item.to}>{item.label}</NavLink>)}</nav>
         </div>
-        <div className="container footer__company"><strong>{company.fullName}</strong><span>{company.registeredAddress}</span><span>NIP {company.nip} · REGON {company.regon}</span></div>
-        <div className="container footer__bottom"><span>© {new Date().getFullYear()} Zimowanie Jachtów Giżycko</span><span>Sezon 01.10–30.04</span></div>
+        <div className="container footer__bottom"><span>© {new Date().getFullYear()} RAD'LIGHT</span></div>
       </footer>
 
       <BackToTop/>
