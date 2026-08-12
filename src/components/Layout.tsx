@@ -1,6 +1,7 @@
 import { BadgeDollarSign, House, Images, Map, MapPin, Moon, PackageOpen, Phone, Sun, Warehouse } from 'lucide-react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { address, navItems, phone } from '../data/mockData';
+import { useScrollToTop } from '../hooks/useScrollToTop';
 import type { Theme } from '../hooks/useTheme';
 
 interface LayoutProps {
@@ -26,6 +27,7 @@ function Brand({ footer = false }: Readonly<BrandProps>) {
 export function Layout({ theme, onToggleTheme }: Readonly<LayoutProps>) {
   const location = useLocation();
   const mobileIcons = [House, PackageOpen, BadgeDollarSign, Map, Warehouse, Images, Phone];
+  useScrollToTop(location.pathname);
 
   return (
     <div className="app-shell">
