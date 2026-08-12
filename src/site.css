@@ -277,6 +277,7 @@
 /* Legal information and page utilities */
 .footer__top{grid-template-columns:1.3fr 1fr .55fr .8fr;gap:clamp(35px,5vw,70px)}
 .footer__nav a{transition:color .2s}.footer__nav a:hover,.footer__nav a.active{color:#83d8df}
+.footer__contact>small,.footer__nav>small{display:flex;align-items:center;gap:7px}.footer__contact>small svg,.footer__nav>small svg{width:13px;height:13px;stroke-width:2}
 .footer__company{margin-top:52px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);display:flex;align-items:center;gap:10px 24px;flex-wrap:wrap;color:#8fa5ae;font-size:11px}
 .footer__company strong{color:#dce7ea;font:600 12px 'Manrope'}
 .footer__bottom{margin-top:18px}
@@ -294,7 +295,7 @@
   .footer__top{grid-template-columns:1fr 1fr}.footer__intro{grid-column:1/-1}
 }
 @media(max-width:680px){
-  .footer__top{grid-template-columns:1fr;gap:34px}.footer__intro{grid-column:auto}.footer__company{margin-top:38px;display:grid;gap:5px}.footer__bottom{margin-top:22px}
+  .footer{padding-top:52px}.footer__top{grid-template-columns:1fr 1fr;gap:38px 20px;text-align:center}.footer__intro,.footer__contact{grid-column:1/-1}.footer__intro{display:flex;flex-direction:column;align-items:center}.footer__intro p{margin-top:20px}.footer__contact,.footer__nav{align-items:center}.footer__contact>small,.footer__nav>small{justify-content:center;margin-bottom:13px}.footer__contact>a{font-size:24px}.footer__contact>span{justify-content:center}.footer__nav a{margin:4px 0;line-height:1.45}.footer__company{margin-top:40px;display:grid;justify-items:center;gap:6px;text-align:center}.footer__bottom{margin-top:22px;text-align:center}.footer__bottom span{margin-top:6px}
   .back-to-top{right:12px;bottom:82px;width:46px;height:46px;padding:0;justify-content:center}.back-to-top span{display:none}
   .legal-hero{padding:75px 0 58px}.legal-hero:after{width:180px;height:180px;right:-80px;top:20px}.legal-hero h1{font-size:clamp(3rem,14vw,4.2rem);margin-bottom:20px}.legal-hero p{font-size:15px;line-height:1.65}.legal-content{padding-top:54px;padding-bottom:76px}.legal-content section{padding-bottom:30px;margin-bottom:30px}.legal-content h2{font-size:1.65rem}.legal-content p,.legal-content li{font-size:14px;line-height:1.75}
 }

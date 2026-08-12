@@ -1,4 +1,4 @@
-import { BadgeDollarSign, House, Images, Map, MapPin, Moon, PackageOpen, Phone, Sun, Warehouse } from 'lucide-react';
+import { BadgeDollarSign, Compass, House, Images, Info, Map, MapPin, Moon, PackageOpen, Phone, Sun, Warehouse } from 'lucide-react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { BackToTop } from './BackToTop';
 import { address, company, legalItems, navItems, phone } from '../data/mockData';
@@ -52,9 +52,9 @@ export function Layout({ theme, onToggleTheme }: Readonly<LayoutProps>) {
       <footer className="footer">
         <div className="container footer__top">
           <div className="footer__intro"><Brand footer/><p>Miejsce dla łodzi na zimę.<br/>Plac i ogrzewana hala w Giżycku.</p></div>
-          <div className="footer__contact"><small>Kontakt</small><a href={phone.href}>{phone.display}</a><span><MapPin/> {address}</span></div>
-          <nav className="footer__nav" aria-label="Nawigacja w stopce"><small>Strona</small>{navItems.slice(1).map((item) => <NavLink key={item.to} to={item.to}>{item.label}</NavLink>)}</nav>
-          <nav className="footer__nav footer__legal" aria-label="Informacje prawne"><small>Informacje</small>{legalItems.map((item) => <NavLink key={item.to} to={item.to}>{item.label}</NavLink>)}</nav>
+          <div className="footer__contact"><small><Phone/>Kontakt</small><a href={phone.href}>{phone.display}</a><span><MapPin/> {address}</span></div>
+          <nav className="footer__nav" aria-label="Nawigacja w stopce"><small><Compass/>Strona</small>{navItems.slice(1).map((item) => <NavLink key={item.to} to={item.to}>{item.label}</NavLink>)}</nav>
+          <nav className="footer__nav footer__legal" aria-label="Informacje prawne"><small><Info/>Informacje</small>{legalItems.map((item) => <NavLink key={item.to} to={item.to}>{item.label}</NavLink>)}</nav>
         </div>
         <div className="container footer__company"><strong>{company.fullName}</strong><span>{company.registeredAddress}</span><span>NIP {company.nip} · REGON {company.regon}</span></div>
         <div className="container footer__bottom"><span>© {new Date().getFullYear()} Zimowanie Jachtów Giżycko</span><span>Sezon 01.10–30.04</span></div>
