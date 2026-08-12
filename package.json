@@ -1,0 +1,27 @@
+{
+  "name": "zimowanie-jachtow-gizycko",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "lucide-react": "^0.468.0",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-router-dom": "^7.8.0",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.15.47",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "playwright-core": "^1.62.1",
+    "typescript": "latest"
+  }
+}
