@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Always use the canonical HTTPS address.
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^zimowaniejachtow\.com\.pl$ [NC]
+RewriteRule ^ https://zimowaniejachtow.com.pl%{REQUEST_URI} [R=301,L,NE]
+
+# Let React handle clean application routes that do not map to real files.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
