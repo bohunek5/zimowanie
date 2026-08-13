@@ -28,7 +28,7 @@ interface SeasonBandProps {
 }
 
 function PhotoLayers() {
-  return <><div className="photo-layer photo-layer--day" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}assets/hero-yard-sun-v3.jpg')` }}/><div className="photo-layer photo-layer--night" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}assets/hero-yard-evening-v3.jpg')` }}/></>;
+  return <><div className="photo-layer photo-layer--day" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}assets/hero-yard-day-real.jpg')` }}/><div className="photo-layer photo-layer--night" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}assets/hero-yard-night-real.jpg')` }}/></>;
 }
 
 function PageHero({ label, title, text, image, imageAlt = '' }: Readonly<PageHeroProps>) {
