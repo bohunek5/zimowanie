@@ -437,3 +437,74 @@
   .offer-section .section-intro,.real-gallery-preview .section-intro,.yard-section__head,.pricing-section .section-intro{margin-bottom:30px}
   .primary-cta{padding:22px 0}
 }
+
+/* Integrated benefit band and one geometry for every internal-page hero */
+.trust-strip{
+  padding:0;
+  background:var(--navy-2);
+  color:#fff;
+}
+.trust-strip__grid{
+  gap:0;
+  background:transparent;
+}
+.trust-strip__grid>div{
+  min-height:154px;
+  padding:28px 30px;
+  gap:19px;
+  border:0!important;
+  border-right:1px solid rgba(255,255,255,.14)!important;
+  border-radius:0;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.trust-strip__grid>div:first-child{border-left:1px solid rgba(255,255,255,.14)!important}
+.trust-strip__grid>div>svg{
+  width:56px;
+  height:56px;
+  padding:14px;
+  color:#82dce3!important;
+  background:rgba(126,214,223,.12)!important;
+  border:1px solid rgba(126,214,223,.23)!important;
+}
+.trust-strip strong{font-size:18px;color:#fff}
+.trust-strip small{font-size:13px;color:#acc0c7;margin-top:5px}
+.offer-section,.real-gallery-preview,.yard-section,.pricing-section{padding-top:76px;padding-bottom:76px}
+.page-hero{height:720px}
+.page-hero__grid{height:520px;min-height:0}
+
+@media(max-width:680px){
+  .trust-strip .container{width:100%}
+  .trust-strip__grid{grid-template-columns:1fr 1fr}
+  .trust-strip__grid>div{
+    min-height:148px;
+    padding:20px 18px;
+    gap:14px;
+    border-right:1px solid rgba(255,255,255,.14)!important;
+    border-bottom:1px solid rgba(255,255,255,.14)!important;
+  }
+  .trust-strip__grid>div:first-child{border-left:0!important}
+  .trust-strip__grid>div:nth-child(2n){border-right:0!important}
+  .trust-strip__grid>div:nth-last-child(-n+2){border-bottom:0!important}
+  .trust-strip__grid>div>svg{width:50px;height:50px;padding:12px}
+  .trust-strip strong{font-size:15px}
+  .trust-strip small{font-size:11px;line-height:1.35}
+  .offer-section,.real-gallery-preview,.yard-section,.pricing-section{padding-top:40px;padding-bottom:52px}
+  .page-hero{
+    height:733px;
+    padding:28px 0 35px;
+  }
+  .page-hero__grid{
+    height:670px;
+    min-height:0;
+    grid-template-rows:370px 300px;
+  }
+  .page-hero__copy{
+    height:370px;
+    min-height:0;
+    padding:28px 0;
+    justify-content:center;
+  }
+  .page-hero__copy h1{font-size:clamp(3rem,14vw,4rem);margin-bottom:22px}
+  .page-hero__photo{height:300px;min-height:0}
+}
