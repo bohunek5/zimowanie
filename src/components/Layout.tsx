@@ -1,4 +1,5 @@
-import { BadgeDollarSign, Compass, House, Images, Info, Map, MapPin, Moon, PackageOpen, Phone, Sun, Warehouse } from 'lucide-react';
+import { BadgeDollarSign, Compass, House, Images, Info, Map, MapPin, Menu, Moon, PackageOpen, Phone, Sun, Warehouse, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { BackToTop } from './BackToTop';
 import { address, legalItems, navItems, phone } from '../data/mockData';
@@ -27,8 +28,21 @@ function Brand({ footer = false }: Readonly<BrandProps>) {
 
 export function Layout({ theme, onToggleTheme }: Readonly<LayoutProps>) {
   const location = useLocation();
-  const mobileIcons = [House, PackageOpen, BadgeDollarSign, Map, Warehouse, Images, Phone];
+  const [mobileMoreOpen, setMobileMoreOpen] = useState(false);
+  const mobilePrimary = [
+    { label: 'Start', to: '/', icon: House },
+    { label: 'Cennik', to: '/cennik', icon: BadgeDollarSign },
+    { label: 'Hala', to: '/hala', icon: Warehouse },
+    { label: 'Kontakt', to: '/kontakt', icon: Phone },
+  ] as const;
+  const mobileMore = [
+    { label: 'Oferta', to: '/oferta', icon: PackageOpen },
+    { label: 'Plac', to: '/plac', icon: Map },
+    { label: 'Galeria', to: '/galeria', icon: Images },
+  ] as const;
+  const isMoreRoute = mobileMore.some((item) => location.pathname === item.to);
   useScrollToTop(location.pathname);
+  useEffect(() => setMobileMoreOpen(false), [location.pathname]);
 
   return (
     <div className="app-shell">
@@ -61,11 +75,16 @@ export function Layout({ theme, onToggleTheme }: Readonly<LayoutProps>) {
 
       <BackToTop/>
 
+      {mobileMoreOpen && <div className="mobile-more" role="dialog" aria-modal="true" aria-label="Więcej stron">
+        <button className="mobile-more__backdrop" type="button" onClick={() => setMobileMoreOpen(false)} aria-label="Zamknij menu"/>
+        <div className="mobile-more__panel">
+          <header><span>Więcej</span><button type="button" onClick={() => setMobileMoreOpen(false)} aria-label="Zamknij"><X/></button></header>
+          <div>{mobileMore.map(({ icon: Icon, ...item }) => <NavLink key={item.to} to={item.to}><Icon/><span>{item.label}</span></NavLink>)}</div>
+        </div>
+      </div>}
       <nav className="mobile-nav" aria-label="Nawigacja mobilna">
-        {navItems.map((item, index) => {
-          const Icon = mobileIcons[index];
-          return <NavLink key={item.to} to={item.to} end={item.to === '/'}><Icon/><span>{item.label}</span></NavLink>;
-        })}
+        {mobilePrimary.map(({ icon: Icon, ...item }) => <NavLink key={item.to} to={item.to} end={item.to === '/'}><Icon/><span>{item.label}</span></NavLink>)}
+        <button className={mobileMoreOpen || isMoreRoute ? 'active' : ''} type="button" onClick={() => setMobileMoreOpen((open) => !open)} aria-expanded={mobileMoreOpen}><Menu/><span>Więcej</span></button>
       </nav>
     </div>
   );

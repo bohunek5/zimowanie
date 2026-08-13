@@ -16,7 +16,7 @@ interface PhotoGalleryProps {
 
 export function PhotoGallery({ photos, compact = false }: Readonly<PhotoGalleryProps>) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const visiblePhotos = compact ? photos.filter((photo) => photo.featured).slice(0, 4) : photos;
+  const visiblePhotos = compact ? photos.filter((photo) => photo.featured).slice(0, 6) : photos;
 
   useEffect(() => {
     if (activeIndex === null) return undefined;

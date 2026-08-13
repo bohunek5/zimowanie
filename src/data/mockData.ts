@@ -78,6 +78,8 @@ export const editorialServices = [
 ] as const;
 
 export const galleryPhotos = [
+  { src: '/assets/hero-yard-day-real.jpg', alt: 'Utwardzony i ogrodzony plac widziany z lotu ptaka w dzień', title: 'Plac z lotu ptaka', category: 'Plac', featured: true },
+  { src: '/assets/hero-yard-night-real.jpg', alt: 'Oświetlony plac widziany z lotu ptaka nocą', title: 'Plac nocą', category: 'Plac', featured: true },
   { src: '/assets/gallery/hala-zewnatrz.jpg', alt: 'Ogrzewana hala i przygotowane wózki na placu', title: 'Hala i zaplecze', category: 'Obiekt', featured: true },
   { src: '/assets/gallery/lodz-na-wozku.jpg', alt: 'Duża łódź motorowa ustawiona na stalowym wózku', title: 'Łódź na wózku', category: 'Plac', featured: true },
   { src: '/assets/gallery/lodz-w-hali.jpg', alt: 'Łódź motorowa przechowywana wewnątrz hali', title: 'Postój w hali', category: 'Hala', featured: true },
