@@ -134,7 +134,7 @@ export function HallPage(_props: Readonly<EmptyPageProps>) {
 }
 
 export function GalleryPage(_props: Readonly<EmptyPageProps>) {
-  return <><section className="gallery-hero"><div className="container"><span className="overline"><Images/> Galeria</span><h1>Galeria</h1><p>Plac, ogrzewana hala, przygotowane wózki i łodzie przechowywane w Giżycku.</p></div></section><section className="section gallery-page"><div className="container gallery-page__head"><strong>{galleryPhotos.length} zdjęć</strong><span>Giżycko · ul. Sybiraków</span></div><div className="container"><PhotoGallery photos={galleryPhotos}/></div></section><PrimaryCta/></>;
+  return <><PageHero label="Galeria" title="Galeria" text="Plac, ogrzewana hala, przygotowane wózki i łodzie przechowywane w Giżycku." image="/assets/gallery/lodz-w-hali.jpg" imageAlt="Łódź przechowywana w ogrzewanej hali w Giżycku"/><section className="section gallery-page"><div className="container gallery-page__head"><strong>{galleryPhotos.length} zdjęć</strong><span>Giżycko · ul. Sybiraków</span></div><div className="container"><PhotoGallery photos={galleryPhotos}/></div></section><PrimaryCta/></>;
 }
 
 export function ContactPage(_props: Readonly<EmptyPageProps>) {
