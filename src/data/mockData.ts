@@ -1,6 +1,7 @@
 import { Building2, Fence, Lightbulb, ShieldCheck, Wrench } from 'lucide-react';
 
 export const phone = { display: '730 026 007', href: 'tel:+48730026007' };
+export const email = { display: 'radlight@wp.pl', href: 'mailto:radlight@wp.pl' };
 export const address = 'ul. Sybiraków, 11-500 Giżycko';
 export const season = '01.10–30.04';
 export const company = {

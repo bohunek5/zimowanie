@@ -279,6 +279,7 @@
 .footer__top{grid-template-columns:1.3fr 1fr .55fr .8fr;gap:clamp(35px,5vw,70px)}
 .footer__nav a{transition:color .2s}.footer__nav a:hover,.footer__nav a.active{color:#83d8df}
 .footer__contact>small,.footer__nav>small{display:flex;align-items:center;gap:7px}.footer__contact>small svg,.footer__nav>small svg{width:13px;height:13px;stroke-width:2}
+.footer__contact>.footer__email{display:flex;align-items:center;gap:7px;margin-top:8px;color:#9fdce1;font:600 13px 'Manrope'}.footer__email svg{width:14px;height:14px}
 .footer__company{margin-top:52px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);display:flex;align-items:center;gap:10px 24px;flex-wrap:wrap;color:#8fa5ae;font-size:11px}
 .footer__company strong{color:#dce7ea;font:600 12px 'Manrope'}
 .footer__bottom{margin-top:18px}

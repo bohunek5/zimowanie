@@ -1,8 +1,8 @@
-import { BadgeDollarSign, Compass, House, Images, Info, Map, MapPin, Menu, Moon, PackageOpen, Phone, Sun, Warehouse, X } from 'lucide-react';
+import { BadgeDollarSign, Compass, House, Images, Info, Mail, Map, MapPin, Menu, Moon, PackageOpen, Phone, Sun, Warehouse, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { BackToTop } from './BackToTop';
-import { address, legalItems, navItems, phone } from '../data/mockData';
+import { address, email, legalItems, navItems, phone } from '../data/mockData';
 import { useScrollToTop } from '../hooks/useScrollToTop';
 import type { Theme } from '../hooks/useTheme';
 
@@ -66,7 +66,7 @@ export function Layout({ theme, onToggleTheme }: Readonly<LayoutProps>) {
       <footer className="footer">
         <div className="container footer__top">
           <div className="footer__intro"><Brand footer/><p>Miejsce dla łodzi na zimę.<br/>Plac i ogrzewana hala w Giżycku.</p></div>
-          <div className="footer__contact"><small><Phone/>Kontakt</small><a href={phone.href}>{phone.display}</a><span><MapPin/> {address}</span></div>
+          <div className="footer__contact"><small><Phone/>Kontakt</small><a href={phone.href}>{phone.display}</a><a className="footer__email" href={email.href}><Mail/> {email.display}</a><span><MapPin/> {address}</span></div>
           <nav className="footer__nav" aria-label="Nawigacja w stopce"><small><Compass/>Strona</small>{navItems.slice(1).map((item) => <NavLink key={item.to} to={item.to}>{item.label}</NavLink>)}</nav>
           <nav className="footer__nav footer__legal" aria-label="Informacje prawne"><small><Info/>Informacje</small>{legalItems.map((item) => <NavLink key={item.to} to={item.to}>{item.label}</NavLink>)}</nav>
         </div>

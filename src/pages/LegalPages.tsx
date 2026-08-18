@@ -1,5 +1,5 @@
 import { Cookie, FileText, ShieldCheck } from 'lucide-react';
-import { company, phone } from '../data/mockData';
+import { company, email, phone } from '../data/mockData';
 
 interface LegalPageProps {
   readonly type: 'terms' | 'privacy' | 'cookies';
@@ -13,14 +13,14 @@ function TermsContent() {
     <section><h2>2. Korzystanie z serwisu</h2><p>Z serwisu można korzystać bez rejestracji. Użytkownik powinien korzystać ze strony zgodnie z prawem, dobrymi obyczajami i jej przeznaczeniem. Zabronione jest dostarczanie treści bezprawnych oraz podejmowanie działań zakłócających działanie strony.</p></section>
     <section><h2>3. Oferta i rezerwacja</h2><p>Informacje oraz ceny widoczne w serwisie mają charakter informacyjny i nie stanowią oferty w rozumieniu Kodeksu cywilnego. Dostępność miejsca, zakres usług, termin przyjęcia łodzi i ostateczna cena są potwierdzane indywidualnie. Rezerwacji można dokonać telefonicznie pod numerem <a href={phone.href}>{phone.display}</a>.</p></section>
     <section><h2>4. Treści i odpowiedzialność</h2><p>Dokładamy starań, aby dane na stronie były aktualne i czytelne. Chwilowa niedostępność serwisu może wynikać z prac technicznych albo przyczyn niezależnych od administratora. Zdjęcia, teksty i elementy graficzne serwisu są chronione prawem i nie mogą być wykorzystywane bez zgody właściciela.</p></section>
-    <section><h2>5. Kontakt i zmiany regulaminu</h2><p>Pytania dotyczące działania strony można zgłaszać telefonicznie. Regulamin może zostać zmieniony, jeżeli zmieni się sposób działania serwisu, zakres publikowanych funkcji lub obowiązujące przepisy. Aktualna wersja jest zawsze dostępna na tej stronie.</p></section>
+    <section><h2>5. Kontakt i zmiany regulaminu</h2><p>Pytania dotyczące działania strony można zgłaszać telefonicznie lub e-mailem: <a href={email.href}>{email.display}</a>. Regulamin może zostać zmieniony, jeżeli zmieni się sposób działania serwisu, zakres publikowanych funkcji lub obowiązujące przepisy. Aktualna wersja jest zawsze dostępna na tej stronie.</p></section>
   </>;
 }
 
 function PrivacyContent() {
   return <>
-    <section><h2>1. Administrator danych</h2><p>Administratorem danych osobowych jest {company.fullName}, {company.registeredAddress}, NIP {company.nip}. W sprawach dotyczących danych osobowych można skontaktować się telefonicznie: <a href={phone.href}>{phone.display}</a>.</p></section>
-    <section><h2>2. Jakie dane przetwarzamy</h2><p>Serwis nie zawiera formularza kontaktowego, kont użytkowników ani systemu płatności. Jeżeli skontaktujesz się telefonicznie, możemy przetwarzać dane przekazane podczas rozmowy, w szczególności imię, numer telefonu oraz informacje potrzebne do przygotowania oferty i rezerwacji miejsca dla łodzi.</p></section>
+    <section><h2>1. Administrator danych</h2><p>Administratorem danych osobowych jest {company.fullName}, {company.registeredAddress}, NIP {company.nip}. W sprawach dotyczących danych osobowych można skontaktować się telefonicznie: <a href={phone.href}>{phone.display}</a> lub e-mailem: <a href={email.href}>{email.display}</a>.</p></section>
+    <section><h2>2. Jakie dane przetwarzamy</h2><p>Serwis nie zawiera formularza kontaktowego, kont użytkowników ani systemu płatności. Jeżeli skontaktujesz się telefonicznie lub e-mailem, możemy przetwarzać dane przekazane w wiadomości albo podczas rozmowy, w szczególności imię, dane kontaktowe oraz informacje potrzebne do przygotowania oferty i rezerwacji miejsca dla łodzi.</p></section>
     <section><h2>3. Cele i podstawy przetwarzania</h2><ul><li>udzielenie odpowiedzi, przygotowanie oferty i podjęcie działań przed zawarciem umowy — art. 6 ust. 1 lit. b RODO;</li><li>realizacja umowy i obsługa rezerwacji — art. 6 ust. 1 lit. b RODO;</li><li>rozliczenia i obowiązki podatkowe — art. 6 ust. 1 lit. c RODO;</li><li>ustalenie, dochodzenie lub obrona roszczeń — prawnie uzasadniony interes administratora, art. 6 ust. 1 lit. f RODO.</li></ul></section>
     <section><h2>4. Odbiorcy i okres przechowywania</h2><p>Dane mogą być przekazywane dostawcom usług niezbędnych do prowadzenia działalności, takim jak obsługa księgowa, prawna i dostawcy infrastruktury IT, wyłącznie w niezbędnym zakresie. Dane przechowujemy przez czas potrzebny do obsługi zapytania lub wykonania umowy, a później przez okres wymagany przepisami albo do upływu terminów przedawnienia roszczeń.</p></section>
     <section><h2>5. Twoje prawa</h2><p>Masz prawo żądać dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania i przeniesienia, a w przypadkach opartych na prawnie uzasadnionym interesie — wnieść sprzeciw. Możesz także złożyć skargę do Prezesa Urzędu Ochrony Danych Osobowych. Dane nie są wykorzystywane do zautomatyzowanego podejmowania decyzji ani profilowania.</p></section>

@@ -1,7 +1,7 @@
-import { ArrowRight, Building2, CalendarDays, Check, Clock3, Fence, Images, Lamp, MapPin, Phone, Ruler, Sailboat, ShieldCheck, Snowflake, Warehouse, Wrench } from 'lucide-react';
+import { ArrowRight, Building2, CalendarDays, Check, Clock3, Fence, Images, Lamp, Mail, MapPin, Phone, Ruler, Sailboat, ShieldCheck, Snowflake, Warehouse, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PhotoGallery } from '../components/PhotoGallery';
-import { address, editorialServices, galleryPhotos, offers, phone, prices, season } from '../data/mockData';
+import { address, editorialServices, email, galleryPhotos, offers, phone, prices, season } from '../data/mockData';
 
 interface PageHeroProps {
   readonly label: string;
@@ -138,5 +138,5 @@ export function GalleryPage(_props: Readonly<EmptyPageProps>) {
 }
 
 export function ContactPage(_props: Readonly<EmptyPageProps>) {
-  return <><PageHero label="Kontakt" title="Ustalmy miejsce dla Twojej łodzi." text="Zadzwoń i podaj długość jednostki oraz wybraną formę postoju." image="/assets/gallery/hala-3.jpg" imageAlt="Ogrzewana hala do zimowania łodzi w Giżycku"/><section className="section contact-page"><div className="container contact-layout"><a className="contact-main" href={phone.href}><small>Telefon</small><strong>{phone.display}</strong><span>Zadzwoń teraz <ArrowRight/></span></a><div className="contact-info"><article><MapPin/><small>Lokalizacja</small><strong>{address}</strong><p>Wjazd od ul. Sybiraków.</p></article><article><Clock3/><small>Sezon</small><strong>{season}</strong><p>Postój od października do końca kwietnia.</p></article><article><Wrench/><small>Serwis</small><strong>Do ustalenia</strong><p>Przygotowanie możesz zlecić nam albo wykonać samodzielnie.</p></article></div></div></section></>;
+  return <><PageHero label="Kontakt" title="Ustalmy miejsce dla Twojej łodzi." text="Zadzwoń lub napisz i podaj długość jednostki oraz wybraną formę postoju." image="/assets/gallery/hala-3.jpg" imageAlt="Ogrzewana hala do zimowania łodzi w Giżycku"/><section className="section contact-page"><div className="container contact-layout"><a className="contact-main" href={phone.href}><small>Telefon</small><strong>{phone.display}</strong><span>Zadzwoń teraz <ArrowRight/></span></a><div className="contact-info"><article><MapPin/><small>Lokalizacja</small><strong>{address}</strong><p>Wjazd od ul. Sybiraków.</p></article><article><Mail/><small>E-mail</small><strong><a href={email.href}>{email.display}</a></strong><p>Napisz w sprawie dostępności miejsca.</p></article><article><Clock3/><small>Sezon</small><strong>{season}</strong><p>Postój od października do końca kwietnia.</p></article><article><Wrench/><small>Serwis</small><strong>Do ustalenia</strong><p>Przygotowanie możesz zlecić nam albo wykonać samodzielnie.</p></article></div></div></section></>;
 }
